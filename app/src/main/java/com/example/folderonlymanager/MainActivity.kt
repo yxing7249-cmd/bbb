@@ -30,6 +30,9 @@ class MainActivity : ComponentActivity() {
             rootUri = uri
             prefs.edit().putString("tree_uri", uri.toString()).apply()
             current = DocumentFile.fromTreeUri(this, uri)
+            contentResolver.notifyChange(
+                android.provider.DocumentsContract.buildRootsUri("$packageName.documents"), null
+            )
             render()
         }
     }
@@ -107,7 +110,7 @@ class MainActivity : ComponentActivity() {
         scroll.addView(content)
         page.addView(scroll, LinearLayout.LayoutParams(-1, 0, 1f))
         page.addView(TextView(this).apply {
-            text = "提示：本应用只在自身界面中限制为文件夹操作。Android 普通 APK 无法接管或强制改变其他应用的上传选择器。"
+            text = "提示：先在本应用中授权管理目录。之后，支持 Android 系统文件选择器（SAF）的应用可在“浏览 / 位置”中找到 Folder Only Manager。是否显示仍由系统和第三方应用决定。"
             textSize = 11f
             setTextColor(0xFF8D8FA2.toInt())
             setPadding(2, 10, 2, 0)
