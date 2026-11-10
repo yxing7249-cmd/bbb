@@ -91,3 +91,6 @@ Features include persisted folder access, folder browsing, create/rename/delete 
 **Platform limitation:** A regular Android app cannot globally replace or force the upload/file picker UI used by other apps. Other apps must explicitly support `ACTION_OPEN_DOCUMENT_TREE` to request folder access. System-wide enforcement requires an OS/ROM-level integration.
 
 See the Chinese section above for setup, build instructions, privacy notes, and project structure.
+
+
+<!-- CI rebuild trigger -->
