@@ -94,3 +94,10 @@ See the Chinese section above for setup, build instructions, privacy notes, and 
 
 
 <!-- CI rebuild trigger -->
+
+
+## Android 文件选择器集成（v3.0）
+
+本版本新增 Android Storage Access Framework（SAF）DocumentsProvider。首次使用时，先打开 Folder Only Manager 并授权一个管理目录；之后，支持系统 SAF 的应用可在系统文件选择器的“浏览/位置”中访问该目录。该入口由 Android DocumentsUI 提供，不是普通应用列表中的强制接管。某些应用使用自定义上传器或不支持 SAF 时不会显示此来源。
+
+文件通过只读 URI 提供给调用应用；目录结构可浏览。是否能选择整个文件夹取决于调用应用是否发起 `ACTION_OPEN_DOCUMENT_TREE`。
